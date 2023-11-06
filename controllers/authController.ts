@@ -128,11 +128,17 @@ const authController = {
 
   google: async (req: Request, res: Response, next: any) => {
     try {
-      let profile = jwt.decode("eyJhbGciOiJSUzI1NiIsImtpZCI6ImY1ZjRiZjQ2ZTUyYjMxZDliNjI0OWY3MzA5YWQwMzM4NDAwNjgwY2QiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3NjUxODM1NjEyNzgtOXFpc3J2aTBkN2dzMDM0MjJnYXV2NzI3b3ZnajhnYXEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3NjUxODM1NjEyNzgtOXFpc3J2aTBkN2dzMDM0MjJnYXV2NzI3b3ZnajhnYXEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTE1MDU5MzI2NDQwMzM2MzU2NDAiLCJlbWFpbCI6InNvZnRjaXJjbGVzMDAxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYmYiOjE2OTg5MjUzMDQsIm5hbWUiOiJTb2Z0IENpcmNsZXMiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSV9QQ2lwa2lWdUpPSUZaNC16SUNwczh5QWstdElBb09UWWZ5cTdKN2hKPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IlNvZnQiLCJmYW1pbHlfbmFtZSI6IkNpcmNsZXMiLCJsb2NhbGUiOiJlbiIsImlhdCI6MTY5ODkyNTYwNCwiZXhwIjoxNjk4OTI5MjA0LCJqdGkiOiJjMjUyNzlhYWUwMTIzYzU0ZjQzMjEzMjQ4MDU1YmU5YmNjNzNlNjcxIn0.VI3-_M8MyjhPpC4wvuDmWFu-8sCn-eFmZUM8t1xKGtPGVB6idWjjBkVK35iy9uHeMl6HnqLnA4YO5IrNCPr-0oLmp3zvCX9gQtV2_AtLHAgD87J9-gqx9I2HbsjC9eEU9fepZijE8QmrwsmaHRoJapHtcNcNO0dRU6qdkdgv_HzsRKmNctlnv3512vX4MCb0iw2Ttgh13Jc37GUuCBswKdShFFPpEwadfozCFwM3qaMDZv9_zGTT5pbWVbXN0veavFZIGP8aBRxKnHFQB3aFIqxgZD2Fegsw755BT_fDewWdcwGtmmT5qAvVKCA7ERGfc_kcnTk9ZhujBtnBL---6A")
-      console.log("profile");
-      console.log("profile");
-      console.log("profile");
-      console.log(profile);
+      let { googleToken } = req.body
+      let profile = jwt.decode(googleToken)
+      if (!profile) {
+        return apiResponse(
+          res,
+          400,
+          false,
+          "No google profile found with this email",
+          null
+        );
+      }
       let user = await User.findOne({
         where: {
           [Op.or]: [

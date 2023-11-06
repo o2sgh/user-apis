@@ -27,7 +27,7 @@ const authValidator = {
             .withMessage('Token is required'),
     ],
     googleLoginValidator: [
-        body('token').notEmpty()
+        body('googleToken').notEmpty()
             .withMessage('Token is required'),
     ],
     updateProfileValidator: [
