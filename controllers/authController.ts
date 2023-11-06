@@ -50,7 +50,7 @@ const authController = {
       sendEmail({
         email,
         subject: "Email Verification Link",
-        message: `To verify your email, please click on the link: http://localhost:3000/email-verifying/${resetToken}`,
+        message: `To verify your email, please click on the link: https://demo-app-git-main-rehannaveeds-projects.vercel.app/email-verifying/${resetToken}`,
       });
       return apiResponse(res, 200, true, "Verification link has been sent to your email, please verify that link", null)
     } catch (error) {
