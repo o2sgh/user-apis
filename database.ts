@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize-typescript');
+import mysql2 from 'mysql2'
 import dotenv from 'dotenv'
 dotenv.config()
 const sequelize = new Sequelize({
@@ -7,6 +8,7 @@ const sequelize = new Sequelize({
     database: process.env.DB_NAME,
     port: process.env.DB_PORT,
     host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT
+    dialect: process.env.DB_DIALECT,
+    dialectModule: mysql2
 });
 export default sequelize;
