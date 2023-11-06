@@ -1,0 +1,41 @@
+{
+  "name": "node_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node app.ts",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo:all": "sequelize db:migrate:undo:all",
+    "db:migrate:undo": "sequelize db:migrate:undo",
+    "db:create": "sequelize db:create",
+    "db:drop": "sequelize db:drop"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "@types/sequelize": "^4.28.17",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "import": "^0.0.6",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.2",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.33.0",
+    "sequelize-typescript": "^2.1.5"
+  }
+}
