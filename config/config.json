@@ -1,9 +1,10 @@
 {
     "development": {
-        "username": "root",
-        "password": "root",
-        "database": "backend_db_development",
-        "host": "localhost",
+        "username": "avnadmin",
+        "password": "AVNS_zjcaq6qddBRm_YFsw3S",
+        "database": "defaultdb",
+        "host": "mysql-541b1d3-muhammadrehannaveed5-1f92.a.aivencloud.com",
+        "port":28439,
         "dialect": "mysql"
     }
 }
