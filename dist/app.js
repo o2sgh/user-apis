@@ -16,6 +16,6 @@ app.use(body_parser_1.default.json());
 app.use('/api/v1/auth', authRoutes_1.default);
 app.use('/api/v1/users', userRoutes_1.default);
 app.listen(process.env.PORT, () => {
-    return console.log(`Express is listening at port: ${process.env.PORT}`);
+    return console.log(`Express server is listening at port: ${process.env.PORT}`);
 });
 //# sourceMappingURL=app.js.map

@@ -11,5 +11,5 @@ app.use(bodyParser.json())
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 app.listen(process.env.PORT, () => {
-  return console.log(`Express is listening at port: ${process.env.PORT}`);
+  return console.log(`Express server is listening at port: ${process.env.PORT}`);
 });
